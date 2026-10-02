@@ -9,25 +9,25 @@ configure_lit_site_cfg(
         ${CMAKE_CURRENT_SOURCE_DIR}/lit.cfg.py
 )
 
-set(STANDALONE_TEST_DEPENDS
+set(AUDIO_TEST_DEPENDS
         FileCheck count not
-        standalone-capi-test
-        standalone-opt
-        standalone-translate
+        audio-capi-test
+        audio-opt
+        audio-translate
         )
 if(NOT WIN32)
-  list(APPEND STANDALONE_TEST_DEPENDS StandalonePlugin)
+  list(APPEND AUDIO_TEST_DEPENDS AudioPlugin)
 endif()
 if(MLIR_ENABLE_BINDINGS_PYTHON)
-  list(APPEND STANDALONE_TEST_DEPENDS StandalonePythonModules)
+  list(APPEND AUDIO_TEST_DEPENDS AudioPythonModules)
 endif()
 
-add_lit_testsuite(check-standalone "Running the standalone regression tests"
+add_lit_testsuite(check-audio "Running the audio regression tests"
         ${CMAKE_CURRENT_BINARY_DIR}
-        DEPENDS ${STANDALONE_TEST_DEPENDS}
+        DEPENDS ${AUDIO_TEST_DEPENDS}
         )
-set_target_properties(check-standalone PROPERTIES FOLDER "Tests")
+set_target_properties(check-audio PROPERTIES FOLDER "Tests")
 
-add_lit_testsuites(STANDALONE ${CMAKE_CURRENT_SOURCE_DIR} DEPENDS ${STANDALONE_TEST_DEPENDS})
+add_lit_testsuites(AUDIO ${CMAKE_CURRENT_SOURCE_DIR} DEPENDS ${AUDIO_TEST_DEPENDS})
 
 add_subdirectory(CAPI)
