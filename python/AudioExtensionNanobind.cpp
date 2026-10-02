@@ -1,7 +1,7 @@
-//===- AudioExtension.cpp - Extension module -------------------------===//
+//===- StandaloneExtension.cpp - Extension module -------------------------===//
 //
 // This is the nanobind version of the example module. There is also a pybind11
-// example in AudioExtensionPybind11.cpp.
+// example in StandaloneExtensionPybind11.cpp.
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -9,7 +9,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "Audio-c/Dialects.h"
+#include "Standalone-c/Dialects.h"
 #include "mlir-c/Dialect/Arith.h"
 #include "mlir/Bindings/Python/IRCore.h"
 #include "mlir/Bindings/Python/IRTypes.h"
@@ -34,7 +34,7 @@ struct PyCustomType
                context) {
           return PyCustomType(
               context->getRef(),
-              mlirAudioCustomTypeGet(
+              mlirStandaloneCustomTypeGet(
                   context.get()->get(),
                   mlirStringRefCreateFromCString(value.c_str())));
         },
@@ -44,7 +44,7 @@ struct PyCustomType
 
 NB_MODULE(_audioDialectsNanobind, m) {
   //===--------------------------------------------------------------------===//
-  // audio dialect
+  // standalone dialect
   //===--------------------------------------------------------------------===//
   auto audioM = m.def_submodule("audio");
 

@@ -4,8 +4,8 @@ module {
     // CHECK-LABEL: func @bar()
     func.func @bar() {
         %0 = arith.constant 1 : i32
-        // CHECK: %{{.*}} = audio.foo %{{.*}} : i32
-        %res = audio.foo %0 : i32
+        // CHECK: %{{.*}} = audio.gain %{{.*}} : i32
+        %res = audio.gain %0 : i32
         return
     }
 

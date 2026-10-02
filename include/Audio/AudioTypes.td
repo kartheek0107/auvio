@@ -1,4 +1,4 @@
-//===- AudioTypes.td - Audio dialect types -------*- tablegen -*-===//
+//===- StandaloneTypes.td - Standalone dialect types -------*- tablegen -*-===//
 //
 // This file is licensed under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -22,8 +22,8 @@ class Audio_Type<string name, string typeMnemonic, list<Trait> traits = []>
 }
 
 def Audio_CustomType : Audio_Type<"Custom", "custom"> {
-    let summary = "Audio custom type";
-    let description = "Custom type in audio dialect";
+    let summary = "Standalone custom type";
+    let description = "Custom type in standalone dialect";
     let parameters = (ins StringRefParameter<"the custom value">:$value);
     let assemblyFormat = "`<` $value `>`";
 }

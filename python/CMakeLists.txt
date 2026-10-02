@@ -17,7 +17,7 @@ declare_mlir_dialect_python_bindings(
   TD_FILE dialects/AudioOps.td
   SOURCES
     dialects/audio_nanobind.py
-    _mlir_libs/_audioDialectsNanobind/py.typed
+    _mlir_libs/_AudioDialectsNanobind/py.typed
   DIALECT_NAME audio)
 
 declare_mlir_python_extension(AudioPythonSources.NanobindExtension
